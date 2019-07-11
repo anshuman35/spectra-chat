@@ -3,17 +3,19 @@ import { Routes, RouterModule } from '@angular/router';
 import { ShellComponent } from './components/shell/shell.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'login'
+    redirectTo: 'messages'
   },
   {
     path: 'messages',
-    component: ShellComponent
+    component: ShellComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',

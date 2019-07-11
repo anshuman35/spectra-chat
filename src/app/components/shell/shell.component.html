@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="mat-elevation-z2" color="primary">
   <mat-toolbar-row>
     <button mat-icon-button (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
@@ -21,7 +21,7 @@
             <mat-icon>person_outline</mat-icon>
           </button>
           <mat-menu #auth="matMenu">
-            <button mat-menu-item (click)="logout()">
+            <button mat-menu-item (click)="logOut()">
               <mat-icon>exit_to_app</mat-icon>
               <span>Sign out</span>
             </button>

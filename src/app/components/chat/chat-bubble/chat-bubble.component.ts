@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ChatBubbleComponent implements OnInit {
 
-  @Input() type:String;
+  @Input() type: string;
 
   constructor() { }
 
