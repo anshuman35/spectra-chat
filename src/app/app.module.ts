@@ -18,11 +18,15 @@ import {
 } from '@angular/material';
 
 import { ShellComponent } from './components/shell/shell.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShellComponent
+    ShellComponent,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
