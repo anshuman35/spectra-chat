@@ -1,0 +1,14 @@
+.chat-input {
+  padding: 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  display: flex;
+
+  textarea {
+    margin-right: 1rem;
+    flex-grow: 1;
+    background: none;
+    border: none;
+    resize: vertical;
+  }
+}

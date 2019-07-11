@@ -1,0 +1,74 @@
+@import "../../../../theme.scss";
+
+
+$remote-message-bubble-color: map-get($spectra-app-accent, 50);
+$local-message-bubble-color: white;
+
+.chat-bubble {
+    max-width: 80%;
+
+    .message-info {
+        white-space: nowrap;
+        padding: 4px 0;
+        font-size: 0.8rem;
+    }
+
+    .message-container {
+        position: relative;
+        border-radius: 5px;
+        padding: 10px 18px;
+
+        &::before {
+            display: block;
+            border: 8px solid;
+            position: absolute;
+            top: 0px;
+            width: 0;
+            height: 0;
+            content: " ";
+            border-bottom-color: transparent;
+        }
+
+        .message {
+            word-wrap: break-word;
+        }
+    }
+
+    &.remote {
+      margin-left: 8px;
+      margin-right: auto;
+        .message-container {
+            color:#222222;
+            background: $remote-message-bubble-color;
+
+            &::before {
+                left: -8px;
+                border-top-color: $remote-message-bubble-color;
+                border-right-color: $remote-message-bubble-color;
+                border-left-color: transparent;
+            }
+        }
+
+    }
+
+    &.local {
+      margin-right: 8px;
+      margin-left: auto;
+        .message-info {
+            text-align: right;
+        }
+
+        .message-container {
+            color: #222222;
+            background: $local-message-bubble-color;
+
+            &::before {
+                right: -8px;
+                border-top-color: $local-message-bubble-color;
+                border-left-color: $local-message-bubble-color;
+                border-right-color: transparent;
+            }
+        }
+
+    }
+}

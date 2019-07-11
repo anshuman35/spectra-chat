@@ -20,13 +20,19 @@ import {
 import { ShellComponent } from './components/shell/shell.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ChatBubbleComponent } from './components/chat/chat-bubble/chat-bubble.component';
+import { ChatInputComponent } from './components/chat/chat-input/chat-input.component';
+import { ChatWindowComponent } from './components/chat/chat-window/chat-window.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShellComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    ChatBubbleComponent,
+    ChatInputComponent,
+    ChatWindowComponent
   ],
   imports: [
     BrowserModule,
