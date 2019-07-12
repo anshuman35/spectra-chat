@@ -1,28 +1,33 @@
 <div class="page" fxLayout="column" fxLayoutAlign="center center">
-  <div fxLayout="column" class="container login-container">
+  <form [formGroup]="signUpForm" (ngSubmit)="signUp()" fxLayout="column" class="container login-container">
     <h1 class="text-center display-4" class="text-center">Create an account</h1>
     <mat-form-field appearance="outline">
       <mat-label>Username</mat-label>
-      <input autofocus matInput placeholder="Username">
+      <input formControlName="username" autofocus matInput placeholder="Username">
       <mat-hint>Can contain letters, digits and underscores only.</mat-hint>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Password</mat-label>
-      <input matInput placeholder="Password">
+      <input formControlName="password" type="password" matInput placeholder="Password">
       <mat-hint>Use letters, digits and symbols such as @, &amp;, !, #
       </mat-hint>
     </mat-form-field>
     <mat-form-field class="mt-1" appearance="outline">
       <mat-label>Confirm password</mat-label>
-      <input matInput placeholder="Confirm password">
+      <input #confirmPassword formControlName="confirmPassword" type="password" matInput placeholder="Confirm password">
     </mat-form-field>
+    <div>
+      <mat-error class="text-center" *ngIf="signUpForm.errors?.mismatch && signUpForm.controls['confirmPassword'].dirty">
+        Passwords do not match
+      </mat-error>
+    </div>
     <div class="action-items" fxLayout="row" fxLayoutAlign="space-between center">
       <div>
         <a mat-button color="primary" routerLink="/login">Back to login</a>
       </div>
       <div>
-        <button mat-raised-button color="primary">Register</button>
+        <button type="submit" [disabled]="signUpForm.invalid" mat-raised-button color="primary">Register</button>
       </div>
     </div>
-  </div>
+  </form>
 </div>

@@ -20,8 +20,9 @@ export class ShellComponent {
   constructor(private breakpointObserver: BreakpointObserver, private authService:AuthService, private router:Router) {}
 
   logOut() {
+    console.log('Logging out');
     this.authService.logOut();
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
 }

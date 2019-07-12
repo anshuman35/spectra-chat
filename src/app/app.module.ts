@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +16,9 @@ import {
   MatMenuModule,
   MatSidenavModule,
   MatToolbarModule,
+  MatSnackBarModule
 } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ShellComponent } from './components/shell/shell.component';
 import { LoginComponent } from './components/login/login.component';
@@ -36,20 +38,23 @@ import { ChatWindowComponent } from './components/chat/chat-window/chat-window.c
     ChatWindowComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    LayoutModule,
+    BrowserModule,
     FlexLayoutModule,
     FormsModule,
-    MatToolbarModule,
+    HttpClientModule,
+    LayoutModule,
     MatButtonModule,
-    MatSidenavModule,
+    MatFormFieldModule,
     MatIconModule,
+    MatInputModule,
     MatListModule,
     MatMenuModule,
-    MatFormFieldModule,
-    MatInputModule
+    MatSidenavModule,
+    MatSnackBarModule,
+    MatToolbarModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
