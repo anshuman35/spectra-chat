@@ -10,3 +10,9 @@ export interface Response<T> {
   data: T,
   errors: Error[];
 }
+
+export interface Channel {
+  id: string,
+  name: string,
+  description: string
+}
