@@ -1,12 +1,12 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-const backendServer = 'localhost:9090';
+const backendServer = 'https://spectra-backend.herokuapp.com';
 export default {
   production: false,
   backendServer,
-  backendUrl: `http://${backendServer}`,
-  stompBrokerUrl: 'http://localhost:3000',
+  backendUrl: `${backendServer}`,
+  stompBrokerUrl: 'https://spectra-broker.herokuapp.com',
 };
 
 /*
