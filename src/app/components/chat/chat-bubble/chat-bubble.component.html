@@ -1,11 +1,12 @@
 <div fxLayout="row">
   <div class="chat-bubble {{type}}">
     <div class="message-info">
-      <b>User, </b>
-      <span>1 min ago</span>
+      <b>{{ user }}</b>
     </div>
     <div class="message-container mat-elevation-z2">
-      <div class="message">Hi user!</div>
+      <div class="message">
+        <ng-content></ng-content>
+      </div>
     </div>
   </div>
 </div>

@@ -36,14 +36,12 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#" *ngFor="let channel of channels$ | async">
+      <a mat-list-item *ngFor="let channel of channels$ | async" [routerLink]="['/messages', channel.name]">
         # {{ channel.name }}
       </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div fxFill fxLayout="column" class="placeholder no-conversation">
-      <img src="/assets/undraw_begin_chat.svg" />
-    </div>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

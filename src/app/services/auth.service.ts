@@ -19,6 +19,11 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) {
     this.token = window.localStorage.getItem('userToken');
+    const serializedUserData = window.localStorage.getItem('userData');
+
+    if (serializedUserData) {
+      this.user = JSON.parse(serializedUserData);
+    }
   }
 
   isLoggedIn(): boolean {
@@ -34,6 +39,7 @@ export class AuthService {
 
     this.token = this.encodeToken(username, password);
     this.user = response.data;
+    window.localStorage.setItem('userData', JSON.stringify(this.user));
     window.localStorage.setItem('userToken', this.token);
 
     return response;
@@ -49,6 +55,8 @@ export class AuthService {
     }).toPromise();
 
     this.token = token;
+    this.user = user;
+    window.localStorage.setItem('userData', JSON.stringify(user));
     window.localStorage.setItem('userToken', this.token);
     return user;
   }
@@ -65,6 +73,7 @@ export class AuthService {
     this.token = null;
     this.user = null;
     window.localStorage.removeItem('userToken');
+    window.localStorage.removeItem('userData');
   }
 
   encodeToken(username: string, password: string) {

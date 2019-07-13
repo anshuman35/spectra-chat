@@ -4,6 +4,8 @@ import { ShellComponent } from './components/shell/shell.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ChatWindowComponent } from './components/chat/chat-window/chat-window.component';
+import { EmptyComponent } from './components/chat/empty/empty.component';
 
 
 const routes: Routes = [
@@ -14,8 +16,21 @@ const routes: Routes = [
   },
   {
     path: 'messages',
+    pathMatch: 'prefix',
     component: ShellComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        component: EmptyComponent,
+      },
+      {
+        path: ':id',
+        pathMatch: 'full',
+        component: ChatWindowComponent,
+      }
+    ]
   },
   {
     path: 'login',

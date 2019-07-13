@@ -1,6 +1,6 @@
 <div class="chat-input mat-elevation-z2">
-  <textarea lines="1"></textarea>
-  <button mat-fab>
+  <textarea ref-textarea [(ngModel)]="message" lines="1"></textarea>
+  <button mat-fab (click)="sendMessage()">
     <mat-icon>send</mat-icon>
   </button>
 </div>

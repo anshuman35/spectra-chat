@@ -1,9 +1,16 @@
 <div fxLayout="column" class="page">
   <div fxLayout="column" fxLayoutAlign="top" class="message-list">
-    <app-chat-bubble type="remote"></app-chat-bubble>
-    <app-chat-bubble type="local"></app-chat-bubble>
-    <app-chat-bubble type="remote"></app-chat-bubble>
-    <app-chat-bubble type="local"></app-chat-bubble>
+    <div class="message" *ngFor="let message of messages">
+      <div class="notif" *ngIf="message.type === 'join'" >
+        {{ message.user.username }} joined!
+      </div>
+      <div class="notif mat-elevation-z2" *ngIf="message.type === 'leave'" >
+        {{ message.user.username }} left!
+      </div>
+      <app-chat-bubble *ngIf="message.type === 'message'" user="{{ message.user.username }}"  type="{{ message.senderType }}">
+        {{ message.content }}
+      </app-chat-bubble>
+    </div>
   </div>
-  <app-chat-input></app-chat-input>
+  <app-chat-input (onSendMessage)="sendMessage($event)"></app-chat-input>
 </div>

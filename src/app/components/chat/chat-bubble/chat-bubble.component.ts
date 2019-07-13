@@ -9,6 +9,8 @@ export class ChatBubbleComponent implements OnInit {
 
   @Input() type: string;
 
+  @Input() user:String;
+
   constructor() { }
 
   ngOnInit() {

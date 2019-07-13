@@ -27,6 +27,9 @@ import { ChatBubbleComponent } from './components/chat/chat-bubble/chat-bubble.c
 import { ChatInputComponent } from './components/chat/chat-input/chat-input.component';
 import { ChatWindowComponent } from './components/chat/chat-window/chat-window.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { InjectableRxStompConfig, RxStompService, rxStompServiceFactory } from '@stomp/ng2-stompjs';
+import stompConfig from './config/stomp.config';
+import { EmptyComponent } from './components/chat/empty/empty.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     SignUpComponent,
     ChatBubbleComponent,
     ChatInputComponent,
-    ChatWindowComponent
+    ChatWindowComponent,
+    EmptyComponent
   ],
   imports: [
     AppRoutingModule,
@@ -62,6 +66,15 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
+    },
+    {
+      provide: InjectableRxStompConfig,
+      useValue: stompConfig
+    },
+    {
+      provide: RxStompService,
+      useFactory: rxStompServiceFactory,
+      deps: [InjectableRxStompConfig]
     }
   ],
   bootstrap: [AppComponent]
